@@ -238,7 +238,7 @@ button:focus {
   background-size: cover;
   color: #fff;
   overflow: hidden;
-  position: relative;
+  /*position: relative;*/   /*Commented this out because the blue background wasn't covering the whole page*/
 }
 
 .home-area .overlay {
