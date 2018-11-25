@@ -8,6 +8,19 @@
   </head>
   
   <body>
+    <?php
+    $servername ="localhost";
+    $username = "rashresta";
+    $password = "7uAhWd";
+
+    $conn = mysqli_connect($servername, $username, $password);
+
+    if (!$conn){
+      die("Connection failed: .mysqli_connect_error()");
+    }
+    echo "Connected successfully";
+    ?>
+
     <!-- Header section starts -->
     <header id="home" class="home-area">    
       <div class="overlay"></div>
@@ -20,16 +33,16 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav mr-auto w-100 justify-content-end">
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="index.html">Home</a>
+                <a class="nav-link page-scroll" href="#home">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="students.html">Students</a>
+                <a class="nav-link page-scroll" href="#students">Students</a>
               </li>  
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="courses.html">Courses</a>
+                <a class="nav-link page-scroll" href="#courses">Courses</a>
               </li>                            
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="instructors.html">Instructors</a>
+                <a class="nav-link page-scroll" href="#instructors">Instructors</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link page-scroll" href="#Discussion">Discussion</a>
@@ -38,12 +51,12 @@
                 <a class="nav-link page-scroll" href="#help">Help</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link page-scroll" href="imprint.html">Imprint</a>
+                <a class="nav-link page-scroll" href="Imprint.html">Imprint</a>
               </li>  
             </ul>
           </div>
         </div>
-        
+
       </nav>  
       <div class="container">      
         <div class="row space-100">
