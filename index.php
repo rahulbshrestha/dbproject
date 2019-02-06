@@ -6,21 +6,51 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">    
   </head>
+  <style> .error {color: #FF0000</style>
   
-  <body>
-    <?php
-    $servername ="localhost";
-    $username = "rashresta";
-    $password = "7uAhWd";
+  <?php
 
-    $conn = mysqli_connect($servername, $username, $password);
+    $servername ="wry";
+    $username = "rashrestha";
+    $password = "YsSAm5Aa";
+
+    $conn = mysqli_connect('wry', 'rashrestha', 'YsSAm5Aa');
 
     if (!$conn){
       die("Connection failed: .mysqli_connect_error()");
     }
     echo "Connected successfully";
-    ?>
+    
+  $emailerr = $passworderr = "";
+  $email = $password = "";
 
+  if ($_SERVER["REQUEST_METHOD"] == "POST"){
+    if (empty($_POST["email"])){
+      $emailerr = "Email is required";}
+    else{
+        $email = test_input($_POST["email"])
+      }
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      $emailerr = "Invalid email format"; 
+    }
+
+    if (empty($_POST["password"])){
+      $passworderr = "Password is required";}
+      else{
+        $password = test_input($_POST["password"]) 
+        filter_var($password, FILTER_VALIDATE_REGEXP, array("options" => array "/.{6,25}/"))
+      }
+    }
+  function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+  }
+
+  ?>
+
+  <body>
     <!-- Header section starts -->
     <header id="home" class="home-area">    
       <div class="overlay"></div>
@@ -74,10 +104,12 @@
           <div class="col-lg-5 col-md-12 col-xs-12">
             <div class="login-box">
               <div class="wrapper">
-      			    <form class="form-signin">       
+      			    <form method="post" action="<?php echo htmlspecialchars($_SERVER[PHP_SELF]);?>" class="form-signin">       
       			      <h2 class="form-signin-heading">Log in</h2>
-      			      <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus="" />
-      			      <input type="password" class="form-control" name="password" placeholder="Password" required=""/>      
+      			      <input type="text" class="form-control" name="username" placeholder="Email Address" required="" autofocus=""  value=<?php echo $email;?>>
+                  <span class="error">* <?php echo $emailerr;?></span>
+      			      <input type="password" class="form-control" name="password" value="<?php echo $password;?>" placeholder="Password" required=""/> 
+                  <span class="error"> <?php echo $passworderr;?> </span>     
       			      <button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>   
       			    </form>
       			   </div>

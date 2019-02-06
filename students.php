@@ -9,11 +9,11 @@
   
   <body>
     <?php
-    $servername ="localhost";
-    $username = "rashresta";
-    $password = "7uAhWd";
+    $servername ="wry";
+    $username = "rashrestha";
+    $password = "YsSAm5Aa";
 
-    $conn = mysqli_connect('clamv', 'rashresta', '7uAhWd');
+    $conn = mysqli_connect('wry', 'rashrestha', 'YsSAm5Aa');
 
     if (!$conn){
       die("Connection failed: .mysqli_connect_error()");
