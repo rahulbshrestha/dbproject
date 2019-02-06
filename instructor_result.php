@@ -14,11 +14,11 @@ $department = trim($department);
 if (!$firstname && !$lastname && !$department)
 {
  	echo 'You have not entered search details. Please go back and try again.';
- 	exit; 
+ 	exit;
 }
 
 
-// connect to the database 
+// connect to the database
 
 @ $db = mysql_pconnect('localhost', 'username', 'password');
 
@@ -30,7 +30,7 @@ exit; }
 
 
 mysql_select_db('professor');
-$query = "select * from professor where ".$Lastname." like '%".$lastname."%' AND ".$Firstname." like '%".$firstname."%'"; 
+$query = "select * from professor where ".$Lastname." like '%".$lastname."%' AND ".$Firstname." like '%".$firstname."%'";
 $result = mysql_query($query);
 $num_results = mysql_num_rows($result);
 echo '<p>Number of Professors found: '.$num_results.'</p>';
